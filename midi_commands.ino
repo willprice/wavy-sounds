@@ -1,7 +1,6 @@
 /* MIDI information
    - channels range from 0-15
  */
- 
 
 typedef enum {
   CHANNEL_MESSAGE = 0xB0,

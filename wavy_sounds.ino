@@ -15,17 +15,19 @@
 
 SoftwareSerial midiSerial(PIN_RX, PIN_TX);
 NewPing sonar(PIN_SONAR_TRIGGER, PIN_SONAR_ECHO, MAX_DISTANCE);
-    
 
-byte note      = 60; //The MIDI note value to be played
+
+// Check the VS1053 datasheet for instrument IDs
 int instrument = 94;
-// Mixolydian mode (C7 chord) C D E F G A B♭ C
+// Each note has a numeric ID that can be found at
+// http://www.phys.unsw.edu.au/jw/notes.html
 int scale[] = {60, 62, 64, 67, 69, 72};
+
+
 int scale_index = 0;
 const int number_of_notes_in_scale = 6;
 
 void setup() {
-  Serial.begin(57600);
   midiSerial.begin(31250);
   resetMIDI();
   initMIDI();
@@ -46,8 +48,4 @@ void loop() {
 
 void updateScaleIndex() {
     scale_index = random(0, number_of_notes_in_scale);
-    Serial.print("Note: ");
-    Serial.println(scale[scale_index]);
 }
-
-
