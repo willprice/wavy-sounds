@@ -23,7 +23,7 @@ void initMIDI() {
 }
 
 void playNote(int note) {
-  int note_velocity = 60;
+  int note_velocity = 10;
   noteOn(0, note, note_velocity);
   delay(NOTE_DURATION);
   noteOff(0, note, note_velocity);

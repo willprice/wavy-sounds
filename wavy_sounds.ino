@@ -18,14 +18,21 @@ NewPing sonar(PIN_SONAR_TRIGGER, PIN_SONAR_ECHO, MAX_DISTANCE);
 
 
 // Check the VS1053 datasheet for instrument IDs
-int instrument = 94;
+// 97 is pretty great
+int instrument = 97;
 // Each note has a numeric ID that can be found at
 // http://www.phys.unsw.edu.au/jw/notes.html
-int scale[] = {60, 62, 64, 67, 69, 72};
+int scale[] = {36, 38, 39, 
+               41, 43, 45, 
+               47, 48, 50, 
+               51, 60, 62, 
+               63, 65, 67, 
+               69, 71, 72, 
+               74, 75};
 
 
 int scale_index = 0;
-const int number_of_notes_in_scale = 6;
+const int number_of_notes_in_scale = 20;
 
 void setup() {
   midiSerial.begin(31250);
